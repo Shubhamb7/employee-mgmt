@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emp-mgmt-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emp-mgmt-frontend
+  template:
+    metadata:
+      labels:
+        app: emp-mgmt-frontend
+    spec:
+      containers:
+        - name: emp-mgmt-frontend
+          image: shubhamb756/employee-mgmt-frontend:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
