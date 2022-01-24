@@ -17,4 +17,4 @@ spec:
     spec:
       containers:
       - image: shubhamb756/employee-management:1.0
-        name: mysqlapp
+        name: mysql-app
