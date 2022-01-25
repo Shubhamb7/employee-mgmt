@@ -9,6 +9,7 @@ spec:
   - port: 8080
     protocol: TCP
     targetPort: 8080
+    nodePort: 31452
   selector:
     app: mysql-app
   type: NodePort
