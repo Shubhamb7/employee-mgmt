@@ -16,5 +16,7 @@ spec:
         app: mysql-app
     spec:
       containers:
-      - image: shubhamb756/employee-management:1.0
+      - image: shubhamb756/employee-management:2.0
         name: mysql-app
+      nodeSelector:
+        kubernetes.io/hostname: ip-172-31-7-99
