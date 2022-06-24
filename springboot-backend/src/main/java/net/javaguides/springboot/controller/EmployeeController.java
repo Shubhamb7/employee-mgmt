@@ -24,7 +24,6 @@ import net.javaguides.springboot.repository.EmployeeRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/v1")
 public class EmployeeController {
 
 	@Autowired
@@ -32,6 +31,11 @@ public class EmployeeController {
 
 	Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 
+	@GetMapping("/")
+	public String getHome(){
+		return "hello world";
+	}
+	
 	// get all employees
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees(){
