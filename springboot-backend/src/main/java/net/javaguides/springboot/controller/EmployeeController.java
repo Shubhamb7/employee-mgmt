@@ -22,7 +22,7 @@ import net.javaguides.springboot.exception.ResourceNotFoundException;
 import net.javaguides.springboot.model.Employee;
 import net.javaguides.springboot.repository.EmployeeRepository;
 
-@CrossOrigin
+@CrossOrigin(origins={"*"})
 @RestController
 public class EmployeeController {
 
