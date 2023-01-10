@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: /
-    destination: /var/lib/jenkins/workspace/deployment\ job/springboot-backend
+    destination: /home/ubuntu/server
 
 permissions:
   - object: /
