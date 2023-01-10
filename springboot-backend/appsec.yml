@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 
 files:
-  - source: /var/lib/jenkins/workspace/deployment\ job/springboot-backend
+  - source: /
     destination: /var/lib/jenkins/workspace/deployment\ job/springboot-backend
 
 permissions:
