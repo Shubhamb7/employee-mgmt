@@ -1,32 +1,36 @@
 version: '3.3'
-
 services:
-    #service 1: definition of mysql database
     db:
       image: mysql:latest
-      container_name: mysql
+      container_name: mysql-server
       environment:
-        - MYSQL_ROOT_PASSWORD=password
-          #        - MYSQL_USER=root
+        - MYSQL_ROOT_PASSWORD=root@password
       ports:
         - "3306:3306"
       restart: always
-    
-    
-    #service 2: definition of your spring-boot app 
-    backend:                        #it is just a name, which will be used only in this file.
-      image: employee-management               #name of the image after dockerfile executes
-      container_name: employee-management-app  #name of the container created from docker image
+
+    backend:
+      image: employee-mgmt-back
+      container_name: backend-server
       build:
-        context: springboot-backend         #docker file path (. means root directory)
-        dockerfile: Dockerfile              #docker file name
+        context: springboot-backend
+        dockerfile: Dockerfile 
       ports:
-        - "8080:8080"                       #docker containter port with your os port
+        - "8080:8080" 
       restart: always
-        
-      depends_on:                           #define dependencies of this app
-        - db                                #dependency name (which is defined with this name 'db' in this file earlier)
-      environment:
-        SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/kube?createDatabaseIfNotExist=true&useSSL=false&user=root
-        SPRING_DATASOURCE_USERNAME: root
-        SPRING_DATASOURCE_PASSWORD: password
+      depends_on: 
+        - db
+         
+    frontend:
+      image: employee-mgmt-front
+      container_name: webserver
+      build:
+        context: react-frontend
+        dockerfile: Dockerfile
+      ports:
+        - "80:80"
+      restart: always
+      depends_on:
+        - backend
+
+
